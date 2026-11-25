@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestion des incidents</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 30px auto; padding: 0 15px; color: #222; }
+    nav a { margin-right: 15px; text-decoration: none; color: #1a56db; font-weight: bold; }
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #f0f3f8; }
+    label { display: block; margin-top: 12px; font-weight: bold; }
+    input, textarea, select { width: 100%; padding: 7px; box-sizing: border-box; }
+    button { margin-top: 15px; padding: 8px 16px; cursor: pointer; }
+    .erreur { color: #b00020; margin-top: 10px; }
+    .danger { background: #c62828; color: #fff; border: none; }
+    .badge { padding: 2px 8px; border-radius: 10px; background: #e5e7eb; }
+  </style>
+</head>
+<body>
+  <h1>Gestion des incidents informatiques</h1>
+  <nav>
+    <a href="{{ url_for('index') }}">Liste des incidents</a>
+    <a href="{{ url_for('ajouter') }}">Signaler un incident</a>
+  </nav>
+  <hr>
+  {% block content %}{% endblock %}
+</body>
+</html>
