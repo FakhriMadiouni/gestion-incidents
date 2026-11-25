@@ -6,8 +6,7 @@ Le projet met en place une chaîne DevOps complète : Git/GitHub, Docker, Docker
 GitHub Actions (CI/CD) et publication d'image dans GHCR.
 
 ## Auteurs
-- PRENOM NOM 1 (@github-1)
-- PRENOM NOM 2 (@github-2)
+- MADIOUNI Fakhri - DSI32 G2 (@FakhriMadiouni)
 
 ## Structure du projet
 ```
@@ -17,6 +16,7 @@ gestion-incidents/
 ├── Dockerfile              # Construction de l'image
 ├── compose.yaml            # Lancement local (build + volume)
 ├── compose.deploy.yaml     # Déploiement depuis l'image GHCR
+├── pytest.ini              # Configuration de pytest
 ├── requirements.txt
 └── .github/workflows/
     ├── ci.yml              # Intégration continue
@@ -26,7 +26,7 @@ gestion-incidents/
 ## Lancer l'application en local (sans Docker)
 ```bash
 python -m venv venv
-source venv/bin/activate        # Windows : venv\Scripts\activate
+source venv/bin/activate        # Windows PowerShell : venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 python run.py
 ```
@@ -53,7 +53,7 @@ Les incidents sont conservés dans le volume `incidents_data`.
   l'image dans GHCR avec les tags `latest` et le SHA du commit.
 
 ## Déploiement à partir de l'image publiée
-Remplacer `VOTRE_UTILISATEUR` dans `compose.deploy.yaml`, puis :
+Le fichier `compose.deploy.yaml` utilise l'image `ghcr.io/fakhrimadiouni/gestion-incidents:latest` (publiée par `cd.yml`) :
 ```bash
 docker compose -f compose.deploy.yaml pull
 docker compose -f compose.deploy.yaml up -d
