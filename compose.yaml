@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    container_name: gestion-incidents
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_PATH: /app/data/incidents.db
+    volumes:
+      - incidents_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  incidents_data:
