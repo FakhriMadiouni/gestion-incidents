@@ -1,4 +1,4 @@
-import os
+﻿import os
 import sqlite3
 
 from flask import Flask, abort, g, redirect, render_template, request, url_for
@@ -56,7 +56,7 @@ def create_app(test_config=None):
 
     @app.route("/health")
     def health():
-        return {"status": "OK"}
+        return {"status": "ERROR"}
 
     @app.route("/incidents/nouveau", methods=["GET", "POST"])
     def ajouter():
